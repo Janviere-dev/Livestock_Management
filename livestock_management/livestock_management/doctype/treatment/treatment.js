@@ -7,7 +7,7 @@ frappe.ui.form.on("Treatment", {
     },
     quantity(frm) {
         calculate_total_cost(frm);
-    }
+    },
 });
 
 function calculate_total_cost(frm) {

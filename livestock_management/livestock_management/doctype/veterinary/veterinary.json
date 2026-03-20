@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{veterinary_name} in {location}",
  "creation": "2026-03-16 16:30:42.912453",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -17,7 +18,9 @@
   {
    "fieldname": "veterinary_name",
    "fieldtype": "Data",
-   "label": "Veterinary_Name"
+   "in_list_view": 1,
+   "label": "Veterinary_Name",
+   "reqd": 1
   },
   {
    "fieldname": "specialization",
@@ -43,7 +46,9 @@
   {
    "fieldname": "location",
    "fieldtype": "Small Text",
-   "label": "Location"
+   "in_list_view": 1,
+   "label": "Location",
+   "reqd": 1
   },
   {
    "default": "0",
@@ -55,10 +60,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-17 14:32:25.943404",
+ "modified": "2026-03-20 10:29:53.894420",
  "modified_by": "Administrator",
  "module": "Livestock Management",
  "name": "Veterinary",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
