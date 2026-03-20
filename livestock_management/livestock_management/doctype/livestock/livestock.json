@@ -1,0 +1,191 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{registry_number}{###}-{animal_type}-{animal_group}",
+ "creation": "2026-03-17 14:40:11.232051",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_tab",
+  "basic_info_section",
+  "registry_number",
+  "animal_type",
+  "animal_group",
+  "column_break_fvgn",
+  "breed",
+  "status",
+  "date_of_acquire",
+  "column_break_wwih",
+  "opening_valuation_rate",
+  "total_treatment_cost",
+  "total_feeding_cost",
+  "closing_valuation_rate",
+  "tab_2_tab",
+  "breading_stock",
+  "height",
+  "method_acquired",
+  "column_break_xoql",
+  "description",
+  "treatment_tab",
+  "feeding_tab",
+  "image_tab",
+  "animal_images"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "AN",
+   "fieldname": "registry_number",
+   "fieldtype": "Data",
+   "label": "Registry Number "
+  },
+  {
+   "fieldname": "animal_type",
+   "fieldtype": "Link",
+   "label": "Animal Type",
+   "options": "Animal Type"
+  },
+  {
+   "fieldname": "animal_group",
+   "fieldtype": "Link",
+   "label": "Animal Group",
+   "options": "Animal Group"
+  },
+  {
+   "fieldname": "breed",
+   "fieldtype": "Link",
+   "label": "Breed",
+   "options": "Breed"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nSold\nDead\nMissing\nSlaughtered"
+  },
+  {
+   "fieldname": "date_of_acquire",
+   "fieldtype": "Date",
+   "label": "Date of Acquire"
+  },
+  {
+   "fieldname": "opening_valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Opening Valuation Rate"
+  },
+  {
+   "fieldname": "total_treatment_cost",
+   "fieldtype": "Currency",
+   "label": "Total Treatment Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_feeding_cost",
+   "fieldtype": "Currency",
+   "label": "Total Feeding Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closing_valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Closing Valuation Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "basic_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic Info"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Additional Info"
+  },
+  {
+   "fieldname": "breading_stock",
+   "fieldtype": "Select",
+   "label": "Breeding Stock ",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "height",
+   "fieldtype": "Float",
+   "label": "Height"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "method_acquired",
+   "fieldtype": "Select",
+   "label": "Method Acquired",
+   "options": "Birth\nPurchased\nDonation"
+  },
+  {
+   "fieldname": "treatment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Treatment"
+  },
+  {
+   "fieldname": "feeding_tab",
+   "fieldtype": "Tab Break",
+   "label": "Feeding"
+  },
+  {
+   "fieldname": "image_tab",
+   "fieldtype": "Tab Break",
+   "label": "Image"
+  },
+  {
+   "fieldname": "animal_images",
+   "fieldtype": "Attach Image",
+   "label": "Animal Images"
+  },
+  {
+   "fieldname": "column_break_fvgn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wwih",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xoql",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-18 06:48:57.860876",
+ "modified_by": "Administrator",
+ "module": "Livestock Management",
+ "name": "Livestock",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

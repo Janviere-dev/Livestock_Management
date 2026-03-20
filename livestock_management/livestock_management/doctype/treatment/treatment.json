@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-17 15:00:28.433089",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "entry_type",
+  "animal_id",
+  "group_id",
+  "veterinarian",
+  "treatment_date",
+  "treatment_account",
+  "warehouse",
+  "product",
+  "valuation_rate",
+  "quantity",
+  "total_cost",
+  "description",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "entry_type",
+   "fieldtype": "Select",
+   "label": "Entry Type",
+   "options": "Individual\nGroup"
+  },
+  {
+   "fieldname": "animal_id",
+   "fieldtype": "Link",
+   "label": "Animal ID",
+   "options": "Livestock"
+  },
+  {
+   "fieldname": "group_id",
+   "fieldtype": "Link",
+   "label": "Group ID",
+   "options": "Animal Group"
+  },
+  {
+   "fieldname": "veterinarian",
+   "fieldtype": "Link",
+   "label": "Veterinarian",
+   "options": "Veterinary"
+  },
+  {
+   "fieldname": "treatment_date",
+   "fieldtype": "Date",
+   "label": "Treatment Date"
+  },
+  {
+   "fieldname": "treatment_account",
+   "fieldtype": "Link",
+   "label": "Treatment Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "label": "Product",
+   "options": "Item"
+  },
+  {
+   "fieldname": "valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Valuation Rate"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Treatment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-19 23:11:12.292072",
+ "modified_by": "Administrator",
+ "module": "Livestock Management",
+ "name": "Treatment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
