@@ -1,23 +1,30 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:Treatment for {entry_type} in {group_id} {####}",
  "creation": "2026-03-17 15:00:28.433089",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "entry_type",
-  "animal_id",
   "group_id",
+  "animal_group",
+  "animal_id",
+  "column_break_qael",
   "veterinarian",
   "treatment_date",
   "treatment_account",
+  "column_break_zzzb",
   "warehouse",
   "product",
   "valuation_rate",
+  "column_break_dqwn",
   "quantity",
   "total_cost",
-  "description",
-  "amended_from"
+  "column_break_chpt",
+  "amended_from",
+  "section_break_wuaq",
+  "description"
  ],
  "fields": [
   {
@@ -27,12 +34,14 @@
    "options": "Individual\nGroup"
   },
   {
+   "depends_on": "eval: doc.entry_type == \"Individual\"",
    "fieldname": "animal_id",
    "fieldtype": "Link",
    "label": "Animal ID",
    "options": "Livestock"
   },
   {
+   "depends_on": "eval: doc.entry_type == \"Group\"",
    "fieldname": "group_id",
    "fieldtype": "Link",
    "label": "Group ID",
@@ -47,7 +56,9 @@
   {
    "fieldname": "treatment_date",
    "fieldtype": "Date",
-   "label": "Treatment Date"
+   "in_list_view": 1,
+   "label": "Treatment Date",
+   "reqd": 1
   },
   {
    "fieldname": "treatment_account",
@@ -64,8 +75,10 @@
   {
    "fieldname": "product",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Product",
-   "options": "Item"
+   "options": "Item",
+   "reqd": 1
   },
   {
    "fetch_from": "product.valuation_rate",
@@ -76,7 +89,9 @@
   {
    "fieldname": "quantity",
    "fieldtype": "Float",
-   "label": "Quantity"
+   "in_list_view": 1,
+   "label": "Quantity",
+   "reqd": 1
   },
   {
    "fieldname": "total_cost",
@@ -98,16 +113,44 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "column_break_qael",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zzzb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dqwn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_chpt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.entry_type == \"Individual\"",
+   "fieldname": "animal_group",
+   "fieldtype": "Link",
+   "label": "Animal Group",
+   "options": "Animal Group"
+  },
+  {
+   "fieldname": "section_break_wuaq",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-20 14:13:34.712855",
+ "modified": "2026-03-26 07:47:52.790440",
  "modified_by": "Administrator",
  "module": "Livestock Management",
  "name": "Treatment",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -120,6 +163,19 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Livestock Manager",
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

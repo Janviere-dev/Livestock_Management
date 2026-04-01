@@ -2,7 +2,21 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Livestock", {
+
+    opening_valuation_rate(frm) {
+        CalculateClosingValuationRate(frm);
+    },
+
+    total_treatment_cost(frm) {
+        CalculateClosingValuationRate(frm);
+    },
+
+    total_feeding_cost(frm) {
+        CalculateClosingValuationRate(frm);
+    },
 	refresh(frm) {
+		CalculateClosingValuationRate(frm);
+
         frm.set_query("breed", function(){
             return{
 
@@ -24,6 +38,8 @@ frappe.ui.form.on("Livestock", {
             });
         }
 	},
+
+
 });
 
 function open_log_activity_dialog(frm) {
@@ -65,6 +81,16 @@ function open_log_activity_dialog(frm) {
                 return;
 
             }
+
+            frappe.call({
+            method: "livestock_management.api.create_sale_invoice", 
+            args: {
+                livestock_id: frm.doc.name,
+                customer: values.customer,
+                selling_price: values.selling_price
+            },
+        })
+
             frm.set_value("status", reason);
             frm.save();
             dialog.hide();
@@ -81,4 +107,14 @@ function toggle_sold_fields(dialog) {
     dialog.set_df_property("selling_price", "hidden", !is_sold);
     dialog.set_df_property("customer", "reqd", is_sold);
     dialog.set_df_property("selling_price", "reqd", is_sold);
+}
+
+function CalculateClosingValuationRate(frm) {
+    // Always update closing valuation rate as the totalcost from feedings and treatment changes by adding total treatment cost, total feeding cost and opening valuation
+    const opening_rate = frm.doc.opening_valuation_rate || 0;
+    const total_treatment_cost = frm.doc.total_treatment_cost || 0;
+    const total_feeding_cost = frm.doc.total_feeding_cost || 0;
+    
+    const closing_valuation_rate = opening_rate + total_treatment_cost + total_feeding_cost;
+    frm.set_value('closing_valuation_rate', closing_valuation_rate);
 }

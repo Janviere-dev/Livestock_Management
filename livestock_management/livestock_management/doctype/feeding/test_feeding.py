@@ -4,6 +4,6 @@
 # import frappe
 from frappe.tests.utils import FrappeTestCase
 
-
+import frappe
 class TestFeeding(FrappeTestCase):
 	pass

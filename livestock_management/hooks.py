@@ -137,13 +137,15 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Livestock": {
+		"on_update": [
+			"livestock_management.livestock_management.doctype.livestock_record_audit.livestock_record_audit.create_livestock_audit",
+			"livestock_management.journal_entry.create_reversing_journal_entry_on_update"
+		],
+		"after_insert": "livestock_management.journal_entry.create_opening_journal_entry_after_insert"
+	}
+}
 
 # Scheduled Tasks
 # ---------------

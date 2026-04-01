@@ -2,12 +2,22 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Treatment", {
+
     valuation_rate(frm) {
         calculate_total_cost(frm);
     },
     quantity(frm) {
         calculate_total_cost(frm);
     },
+
+    refresh(frm) {
+        frm.set_query("animal_id", function(){
+            return{
+
+                filters:{animal_group: frm.doc.animal_group, "status": "Active"}
+            }
+        })
+	},
 });
 
 function calculate_total_cost(frm) {

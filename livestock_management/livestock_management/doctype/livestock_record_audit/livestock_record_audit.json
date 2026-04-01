@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{livestock_id}-{####}",
  "creation": "2026-03-17 15:22:29.631529",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -39,6 +40,7 @@
    "label": "Activity"
   },
   {
+   "default": "Now",
    "fieldname": "date_of_action",
    "fieldtype": "Datetime",
    "label": "Date of action"
@@ -53,10 +55,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-17 16:09:00.519480",
+ "modified": "2026-03-24 15:24:12.637979",
  "modified_by": "Administrator",
  "module": "Livestock Management",
  "name": "Livestock Record Audit",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

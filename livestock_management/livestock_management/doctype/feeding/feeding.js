@@ -7,7 +7,16 @@ frappe.ui.form.on("Feeding", {
     },
     quantity(frm) {
         calculate_total_cost(frm);
-    }
+    },
+
+    refresh(frm) {
+        frm.set_query("animal_id", function(){
+            return{
+
+                filters:{animal_group: frm.doc.animal_group,  "status": "Active"}
+            }
+        })
+	}
 });
 
 function calculate_total_cost(frm) {

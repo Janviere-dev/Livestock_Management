@@ -32,7 +32,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-16 17:15:41.767125",
+ "modified": "2026-03-22 18:02:56.665346",
  "modified_by": "Administrator",
  "module": "Livestock Management",
  "name": "Breed",
@@ -48,6 +48,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Livestock Manager",
    "share": 1,
    "write": 1
   }

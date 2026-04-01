@@ -1,19 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:Feeding for {entry_type} in {group_id} {####}",
  "creation": "2026-03-17 15:10:21.019808",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "entry_type",
-  "animal_id",
   "group_id",
+  "animal_group",
+  "animal_id",
+  "column_break_qmsj",
   "feeding_date",
   "feeding_account",
   "warehouse",
+  "column_break_piqm",
   "product",
   "valuation_rate",
   "quantity",
+  "column_break_fkxf",
   "total_cost",
   "description",
   "amended_from"
@@ -26,21 +31,26 @@
    "options": "Individual\nGroup"
   },
   {
+   "depends_on": "eval: doc.entry_type == \"Individual\"",
    "fieldname": "animal_id",
    "fieldtype": "Link",
    "label": "Animal ID",
    "options": "Livestock"
   },
   {
+   "depends_on": "eval: doc.entry_type == \"Group\"",
    "fieldname": "group_id",
    "fieldtype": "Link",
    "label": "Group ID ",
+   "mandatory_depends_on": "eval: doc.entry_type == \"Group\"",
    "options": "Animal Group"
   },
   {
    "fieldname": "feeding_date",
    "fieldtype": "Date",
-   "label": "Feeding Date"
+   "in_list_view": 1,
+   "label": "Feeding Date",
+   "reqd": 1
   },
   {
    "fieldname": "feeding_account",
@@ -57,10 +67,13 @@
   {
    "fieldname": "product",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Product",
-   "options": "Item"
+   "options": "Item",
+   "reqd": 1
   },
   {
+   "fetch_from": "product.valuation_rate",
    "fieldname": "valuation_rate",
    "fieldtype": "Currency",
    "label": "Valuation Rate"
@@ -68,7 +81,9 @@
   {
    "fieldname": "quantity",
    "fieldtype": "Float",
-   "label": "Quantity"
+   "in_list_view": 1,
+   "label": "Quantity",
+   "reqd": 1
   },
   {
    "fieldname": "total_cost",
@@ -90,16 +105,36 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "column_break_qmsj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_piqm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fkxf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.entry_type == \"Individual\"",
+   "fieldname": "animal_group",
+   "fieldtype": "Link",
+   "label": "Animal Group",
+   "options": "Animal Group"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-17 15:17:11.911295",
+ "modified": "2026-03-26 16:02:28.157826",
  "modified_by": "Administrator",
  "module": "Livestock Management",
  "name": "Feeding",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -112,6 +147,19 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Livestock Manager",
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

@@ -17,8 +17,6 @@
   "date_of_acquire",
   "column_break_wwih",
   "opening_valuation_rate",
-  "total_treatment_cost",
-  "total_feeding_cost",
   "closing_valuation_rate",
   "tab_2_tab",
   "breading_stock",
@@ -27,7 +25,11 @@
   "column_break_xoql",
   "description",
   "treatment_tab",
+  "livestock_treatment_log",
+  "total_treatment_cost",
   "feeding_tab",
+  "livestock_feeding_log",
+  "total_feeding_cost",
   "image_tab",
   "animal_images"
  ],
@@ -45,27 +47,36 @@
   {
    "fieldname": "animal_type",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Animal Type",
-   "options": "Animal Type"
+   "options": "Animal Type",
+   "reqd": 1
   },
   {
    "fieldname": "animal_group",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Animal Group",
-   "options": "Animal Group"
+   "options": "Animal Group",
+   "reqd": 1
   },
   {
    "fieldname": "breed",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Breed",
-   "options": "Breed"
+   "options": "Breed",
+   "reqd": 1
   },
   {
    "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Status",
-   "options": "Active\nSold\nDead\nMissing\nSlaughtered"
+   "options": "Active\nSold\nDead\nMissing\nSlaughtered",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "date_of_acquire",
@@ -75,19 +86,18 @@
   {
    "fieldname": "opening_valuation_rate",
    "fieldtype": "Currency",
-   "label": "Opening Valuation Rate"
+   "label": "Opening Valuation Rate",
+   "non_negative": 1
   },
   {
    "fieldname": "total_treatment_cost",
    "fieldtype": "Currency",
-   "label": "Total Treatment Cost",
-   "read_only": 1
+   "label": "Total Treatment Cost"
   },
   {
    "fieldname": "total_feeding_cost",
    "fieldtype": "Currency",
-   "label": "Total Feeding Cost",
-   "read_only": 1
+   "label": "Total Feeding Cost"
   },
   {
    "fieldname": "closing_valuation_rate",
@@ -145,7 +155,7 @@
   {
    "fieldname": "animal_images",
    "fieldtype": "Attach Image",
-   "label": "Animal Images"
+   "label": "Animal Image"
   },
   {
    "fieldname": "column_break_fvgn",
@@ -158,12 +168,25 @@
   {
    "fieldname": "column_break_xoql",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "livestock_treatment_log",
+   "fieldtype": "Table",
+   "label": "Livestock Treatment Log",
+   "options": "Livestock Treatment Log"
+  },
+  {
+   "fieldname": "livestock_feeding_log",
+   "fieldtype": "Table",
+   "label": "Livestock feeding Log",
+   "options": "Livestock Feeding Log"
   }
  ],
  "grid_page_length": 50,
+ "image_field": "animal_images",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-20 14:47:36.843521",
+ "modified": "2026-03-25 17:11:23.465078",
  "modified_by": "Administrator",
  "module": "Livestock Management",
  "name": "Livestock",
@@ -179,6 +202,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Livestock Manager",
    "share": 1,
    "write": 1
   }
